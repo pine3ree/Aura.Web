@@ -71,11 +71,14 @@ class Values extends ArrayObject
      * not set.
      *
      */
-    public function get($key, $alt = null)
+    public function get($key = null, $alt = null)
     {
+        if (! $key) {
+            return $this->all();
+        }
+        
         return isset($this[$key]) ? $this[$key] : $alt;
     }
-
 
     /**
      *
